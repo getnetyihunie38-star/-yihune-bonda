@@ -1,0 +1,2 @@
+import {NextResponse} from "next/server"; import {session,NAME} from "../../../../lib/auth";
+export async function POST(r:Request){const{password}=await r.json();if(!process.env.ADMIN_PASSWORD||password!==process.env.ADMIN_PASSWORD)return NextResponse.json({}, {status:401});const x=NextResponse.json({ok:true});x.cookies.set(NAME,session(),{httpOnly:true,secure:true,sameSite:"lax",path:"/",maxAge:604800});return x}

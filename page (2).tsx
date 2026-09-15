@@ -1,0 +1,1 @@
+import {redirect} from "next/navigation"; import {admin} from "../../lib/auth"; import AdminPanel from "../../components/AdminPanel"; export const dynamic="force-dynamic"; export default async function Admin(){if(!(await admin()))redirect("/admin/login");return <main className="section"><div className="container"><AdminPanel/></div></main>}

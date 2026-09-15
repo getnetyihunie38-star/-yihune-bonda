@@ -1,0 +1,2 @@
+import {NextResponse} from "next/server"; import {db} from "../../../lib/db";
+export async function POST(r:Request){try{const b=await r.json();if(!b.customer_name||!b.phone||!b.product_name)return NextResponse.json({error:"required"},{status:400});await db()`INSERT INTO orders(customer_name,phone,product_name,size,color,quantity,note) VALUES(${b.customer_name},${b.phone},${b.product_name},${b.size||""},${b.color||""},${Math.max(1,+b.quantity||1)},${b.note||""})`;return NextResponse.json({ok:true})}catch{return NextResponse.json({error:"db"},{status:500})}}

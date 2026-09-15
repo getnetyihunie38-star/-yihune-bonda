@@ -1,0 +1,1 @@
+import OrderForm from "../../components/OrderForm"; export default function Order({searchParams}:{searchParams:{product?:string}}){return <main className="section"><div className="container"><h1>ትዕዛዝ ይላኩ</h1><OrderForm initialProduct={searchParams.product||""}/></div></main>}

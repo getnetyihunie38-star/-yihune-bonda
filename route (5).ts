@@ -1,0 +1,1 @@
+import {NextResponse} from "next/server"; import {admin} from "../../../../../lib/auth"; import {db} from "../../../../../lib/db"; export async function DELETE(_r:Request,{params}:{params:Promise<{id:string}>}){if(!(await admin()))return NextResponse.json({}, {status:401});const{id}=await params;await db()`DELETE FROM products WHERE id=${+id}`;return NextResponse.json({ok:true})}

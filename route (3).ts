@@ -1,0 +1,1 @@
+import {NextResponse} from "next/server"; import {NAME} from "../../../../lib/auth"; export async function POST(){const x=NextResponse.json({ok:true});x.cookies.set(NAME,"",{httpOnly:true,secure:true,path:"/",maxAge:0});return x}

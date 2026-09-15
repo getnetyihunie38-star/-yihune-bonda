@@ -1,0 +1,1 @@
+import {NextResponse} from "next/server"; import {admin} from "../../../../lib/auth"; import {db} from "../../../../lib/db"; export async function GET(){if(!(await admin()))return NextResponse.json({}, {status:401});return NextResponse.json(await db()`SELECT * FROM orders ORDER BY created_at DESC`)}

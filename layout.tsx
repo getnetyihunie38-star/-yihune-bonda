@@ -1,0 +1,3 @@
+import "./globals.css"; import Link from "next/link";
+export const metadata={title:"Yihune Bonda",description:"Yihune Bonda online shop"};
+export default function Layout({children}:{children:React.ReactNode}){return <><header className="header"><div className="container nav"><b>Yihune Bonda</b><nav className="links"><Link href="/">መነሻ</Link><Link href="/products">ምርቶች</Link><Link href="/order">ትዕዛዝ</Link><Link href="/admin">Admin</Link></nav></div></header>{children}<footer className="header"><div className="container section"><b>Yihune Bonda</b><p>ባህርዳር ቀበሌ 4 • ዋርካው ህንፃ • ግራውንድ 82</p><p>ስልክ: {process.env.SHOP_PHONE||"0945571200"}</p></div></footer></>}

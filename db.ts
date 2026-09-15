@@ -1,0 +1,1 @@
+import {neon} from "@neondatabase/serverless"; export const db=()=>{if(!process.env.DATABASE_URL)throw new Error("DATABASE_URL missing");return neon(process.env.DATABASE_URL)};
